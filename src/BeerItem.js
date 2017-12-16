@@ -3,21 +3,23 @@ import React from 'react';
 
 export default class BeerItem extends React.Component{
 
-  ShowBeers=()=>{
+  ShowItem=()=>{
     const{name, tagline, image_url} = this.props.beer;
     return <div>
-      <span>{name}</span>
-      <span>{tagline}</span>
       <img alt='beer' src={image_url}/>
+      <p>{name}</p>
+      <p>{tagline}</p>
     </div>
   }
 
 
+
+
   render(){
-    console.log('propsy beerItem', this.props.beer);
+    // console.log('propsy beerItem', this.props.beer);
     return(
       <div>
-        {this.ShowBeers()}
+        {this.ShowItem()}
       </div>
     )
   }

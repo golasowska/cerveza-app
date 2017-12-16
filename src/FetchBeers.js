@@ -19,12 +19,12 @@ export default class FetchBeers extends React.Component{
   FetchBeers=()=>{
     axios.get('https://api.punkapi.com/v2/beers')
     .then(response => {
-      console.log(response.data[2]);
+      // console.log(response.data[2]);
       this.setState({
         data: response.data.slice(0,20),
         dataScroll: response.data.slice(20,25)
       })
-      console.log('data', this.state.data);
+      // console.log('data', this.state.data);
     })
     .catch(function(error) {
       console.log(error);
@@ -35,7 +35,8 @@ export default class FetchBeers extends React.Component{
 
   render(){
     return(
-      <DisplayBeers data={this.state.data}/>
+      <DisplayBeers data={this.state.data}
+      dataScroll={this.state.dataScroll}/>
     )
   }
 
