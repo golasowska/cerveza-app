@@ -15,10 +15,10 @@ export default class Navigation extends React.Component{
             </div>
             <ul className='nav navbar-nav navbar-right'>
               <li className='nav-item' key={1}>
-                <Link className='nav-link' to='./detail'>Cervezas</Link>
+                <Link className='nav-link' to='/detail'>Cervezas</Link>
               </li>
               <li className='nav-item' key={2}>
-                <Link className='nav-link' to='./favourite'>Favourite</Link>
+                <Link className='nav-link' to='/favourite'>Favourite</Link>
               </li>
             </ul>
           </div>

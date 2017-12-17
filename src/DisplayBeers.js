@@ -13,13 +13,13 @@ export default class DisplayBeers extends React.Component{
     }
   }
 
-  componentDidMount(){
-    window.addEventListener('scroll', this.HandleClick)
-  };
-
-  componentWillUnmount(){
-    window.removeEventListener('scroll', this.HandleClick)
-  };
+  // componentDidMount(){
+  //   window.addEventListener('scroll', this.HandleClick)
+  // };
+  //
+  // componentWillUnmount(){
+  //   window.removeEventListener('scroll', this.HandleClick)
+  // };
 
 
   ShowBeers=()=>{
@@ -52,7 +52,7 @@ export default class DisplayBeers extends React.Component{
         <div>
           {this.state.loading?moreBeers:null}
         </div>
-        <h3 style={{display: this.state.noDisplay}}>KONIEC PIWEREK</h3>
+        <h3 style={{noDisplay: this.state.noDisplay}}>KONIEC PIWEREK</h3>
       </div>
     )
   }
