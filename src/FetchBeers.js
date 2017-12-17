@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import DisplayBeers from './DisplayBeers.js';
+import Navigation from './Navigation.js';
 
 export default class FetchBeers extends React.Component{
   constructor(props){
@@ -10,6 +11,7 @@ export default class FetchBeers extends React.Component{
       dataScroll: []
     }
   }
+
 
   componentDidMount=()=>{
     this.FetchBeers();
@@ -35,8 +37,11 @@ export default class FetchBeers extends React.Component{
 
   render(){
     return(
-      <DisplayBeers data={this.state.data}
-      dataScroll={this.state.dataScroll}/>
+      <div>
+        <Navigation />
+        <DisplayBeers data={this.state.data}
+        dataScroll={this.state.dataScroll}/>
+      </div>
     )
   }
 

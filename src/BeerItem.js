@@ -1,25 +1,26 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
 
 export default class BeerItem extends React.Component{
 
+
   ShowItem=()=>{
-    const{name, tagline, image_url} = this.props.beer;
-    return <div>
+    const{name, tagline, image_url,id} = this.props.beer;
+    return <div onClick={this.showDetail}>
       <img alt='beer' src={image_url}/>
-      <p>{name}</p>
+      <Link to={`/detail/${id}`}>{name}</Link>
       <p>{tagline}</p>
     </div>
-  }
-
-
+  };
 
 
   render(){
     // console.log('propsy beerItem', this.props.beer);
     return(
       <div>
-        {this.ShowItem()}
+        <div>
+          {this.ShowItem()}
+        </div>
       </div>
     )
   }

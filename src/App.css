@@ -2,3 +2,14 @@
   display: flex;
   flex-direction: row;
 }
+
+*{
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+/*nav.navbar {
+  overflow: hidden;
+  background: #fff;
+  position: fixed;
+  top: 0;
+}*/
