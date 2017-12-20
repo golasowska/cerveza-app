@@ -2,20 +2,20 @@ import React from 'react';
 import axios from 'axios';
 import DisplayBeers from './DisplayBeers.js';
 import Navigation from './Navigation.js';
+import {RingLoader} from 'react-spinners';
 
 export default class FetchBeers extends React.Component{
   constructor(props){
     super(props);
     this.state={
       data : [],
-      dataScroll: []
+      dataScroll: [],
+      loading: true
     }
-  }
-
+  };
 
   componentDidMount=()=>{
     this.FetchBeers();
-
   }
 
   FetchBeers=()=>{
@@ -33,14 +33,18 @@ export default class FetchBeers extends React.Component{
     });
   };
 
-
-
   render(){
     return(
       <div>
         <Navigation />
         <DisplayBeers data={this.state.data}
         dataScroll={this.state.dataScroll}/>
+        <div className='sweet-loading'>
+         <RingLoader
+           color={'#43b6e0'}
+           loading={this.state.loading}
+         />
+      </div>
       </div>
     )
   }
