@@ -39,14 +39,22 @@ export default class BeerDetail extends React.Component{
     return(
       <div>
         <Navigation/>
-        <img alt='beer' src={image_url} />
-        <h3>{name}</h3>
-        <div>{description}</div>
-        <div>{abv}</div>
-        <div>{ibu}</div>
-        <div>{brewers_tips}</div>
-        <LocalStorage beer={this.state.detailData}/>
-        <Suggestion detailData={this.state.detailData} />
+          <div className='container'>
+            <div className='row rowDet justify-content-center align-items-center'>
+              <div className='col-md-5 text-center'>
+              <img  className='imageBeerDet' alt='beer' src={image_url} />
+              </div>
+            <div className='col-md-7'>
+              <h3 className='mb-4'>{name}</h3>
+              <h6 className='mb-2'>{description}</h6>
+              <div className='mb-2'>ABV : {abv}</div>
+              <div className='mb-2'>IBU : {ibu}</div>
+              <div className='text-muted mb-5'>{brewers_tips}</div>
+              <LocalStorage beer={this.state.detailData}/>
+            </div>
+          </div>
+            <Suggestion detailData={this.state.detailData} />
+          </div>
       </div>
     )
   }

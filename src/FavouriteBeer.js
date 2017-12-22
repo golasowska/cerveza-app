@@ -30,9 +30,11 @@ export default class FavouriteBeer extends React.Component{
     return(
         <div>
           <Navigation />
-          <div>
+          <div className='container'>
+          <div className='row justify-content-center'>
             {this.displayBeers()}
           </div>
+        </div>
         </div>
     )
   }

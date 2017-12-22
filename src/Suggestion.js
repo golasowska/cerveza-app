@@ -98,13 +98,16 @@ export default class Suggestion extends React.Component{
 
 
   render(){
-    return(<div>
-      <button onClick={this.showSuggestion}
+    return(<div className='container'>
+      <div className='row justify-content-center'>
+      <button className='btn btn-outline-info'
+        onClick={this.showSuggestion}
         style={{display: this.state.display}}
-        >Pokaz podobne piwerka</button>
+        >You might also like</button>
       {this.state.loadingIbu?(<BeerItem beer={this.state.sugIbu} />):null}
       {this.state.loadingIbu?(<BeerItem beer={this.state.sugAbv} />):null}
       {this.state.loadingIbu?(<BeerItem beer={this.state.sugEbc} />):null}
+      </div>
       </div>
     )
   }
