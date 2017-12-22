@@ -1,7 +1,22 @@
+body{
+  padding-top: 65px;
+}
+
+nav.navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #f44b40;
+}
+
+
 .navbar-right{
   display: flex;
   flex-direction: row;
 }
+
+
 
 *{
   font-family: Roboto,Helvetica,Arial,sans-serif;
@@ -37,10 +52,3 @@ div.rowDet{
   margin-top: 50px;
   margin-bottom: 50px;
 }
-
-/*nav.navbar {
-  overflow: hidden;
-  background: #fff;
-  position: fixed;
-  top: 0;
-}*/

@@ -38,11 +38,13 @@ export default class FetchBeers extends React.Component{
         <Navigation />
         <DisplayBeers data={this.state.data}
         dataScroll={this.state.dataScroll}/>
-        <div className='sweet-loading'>
-         <RingLoader
-           color={'#43b6e0'}
-           loading={this.state.loading}
-         />
+      <div className='row justify-content-center'>
+        <div className='sweet-loading text-center'>
+           <RingLoader
+             color={'#43b6e0'}
+             loading={this.state.loading}
+           />
+        </div>
       </div>
       </div>
     )

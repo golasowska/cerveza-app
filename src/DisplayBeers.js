@@ -12,14 +12,14 @@ export default class DisplayBeers extends React.Component{
       noDisplay: 'none'
     }
   }
-
-  componentDidMount(){
-    window.addEventListener('scroll', this.HandleClick)
-  };
-
-  componentWillUnmount(){
-    window.removeEventListener('scroll', this.HandleClick)
-  };
+  //
+  // componentDidMount(){
+  //   window.addEventListener('scroll', this.HandleClick)
+  // };
+  //
+  // componentWillUnmount(){
+  //   window.removeEventListener('scroll', this.HandleClick)
+  // };
 
 
   ShowBeers=()=>{
@@ -46,13 +46,17 @@ export default class DisplayBeers extends React.Component{
         <div className='row justify-content-center'>
           {this.ShowBeers()}
         </div>
-        <div>
-          <button style={{display: this.state.display}} onClick={this.HandleClick}> Load more...</button>
+        <div className='row justify-content-center'>
+          <button className='btn btn-outline-info mt-5'
+            style={{display: this.state.display}}
+            onClick={this.HandleClick}> Load more...</button>
         </div>
         <div className='row justify-content-center'>
           {this.state.loading?moreBeers:null}
         </div>
-        <h3 style={{noDisplay: this.state.noDisplay}}>KONIEC PIWEREK</h3>
+        <div className='row justify-content-center'>
+          <h3 className='alert alert-dark m-5' style={{noDisplay: this.state.noDisplay}}>THE END</h3>
+        </div>
       </div>
     )
   }
