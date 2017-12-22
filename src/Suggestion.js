@@ -6,67 +6,103 @@ export default class Suggestion extends React.Component{
   constructor(props){
     super(props);
     this.state={
+      allData:[],
       loadingIbu: false,
       loadingAbv: false,
       loadingEbc: false,
       sugIbu: [],
       sugAbv: [],
-      sugEbc: []
+      sugEbc: [],
+      display: 'block'
     }
   };
 
-  showSuggestion=()=>{
-    this.FetchIbu();
-    this.FetchAbv();
-    this.FetchEbc();
+  componentDidMount() {
+      this.FetchArr();
   }
 
-  FetchIbu=()=>{
-    const ibu=Math.floor(this.props.detailData.ibu);
-    axios.get(`https://api.punkapi.com/v2/beers?ibu_gt=${ibu-1}&ibu_lt=${ibu+1}`)
+  showSuggestion=()=>{
+    this.SetIbu();
+    this.SetAbv();
+    this.SetEbc();
+    this.setState({
+      display: 'none'
+    })
+  };
+
+  FetchArr=()=>{
+    axios.get('https://api.punkapi.com/v2/beers?page=1&per_page=80')
     .then(response => {
       this.setState({
-        sugIbu: response.data[1],
+        allData: response.data
+      });
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+  };
+
+  SetIbu=()=>{
+    const newIbuArr = this.state.allData.sort((a,b)=>{return a.ibu-b.ibu});
+    let idArr = [];
+    const id=this.props.detailData.id;
+    Object.getOwnPropertyNames(newIbuArr).forEach(
+      (val, idx, array)=>{
+        idArr.push( newIbuArr[val].id);
+      }
+    );
+    const newIndex = idArr.indexOf(id) +1;
+    const sugIbu = newIbuArr[newIndex];
+
+      this.setState({
+        sugIbu,
         loadingIbu: true
       })
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  };
+    };
 
-  FetchAbv=()=>{
-    const abv = Math.floor(this.props.detailData.abv);
-    axios.get(`https://api.punkapi.com/v2/beers?abv_gt=${abv-1}&abv_lt=${abv+1}`)
-    .then(response => {
+    SetAbv=()=>{
+      const newAbvArr = this.state.allData.sort((a,b)=>{return a.abv-b.abv});
+      let idArr = [];
+      const id = this.props.detailData.id;
+      Object.getOwnPropertyNames(newAbvArr).forEach(
+        (val, idx, array)=>{
+          idArr.push( newAbvArr[val].id);
+        }
+      );
+      const newIndex = idArr.indexOf(id) +1;
+      const sugAbv= newAbvArr[newIndex];
+
       this.setState({
-        sugAbv: response.data[1],
+        sugAbv,
         loadingAbv: true
       })
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  };
+    };
 
-  FetchEbc=()=>{
-    const ebc=Math.floor(this.props.detailData.ebc);
-    axios.get(`https://api.punkapi.com/v2/beers?ebc_gt=${ebc-1}&ebc_lt=${ebc+1}`)
-    .then(response => {
+    SetEbc=()=>{
+      const newEbcArr = this.state.allData.sort((a,b)=>{return a.ebc - b.ebc});
+      let idArr = [];
+      const id = this.props.detailData.id;
+      Object.getOwnPropertyNames(newEbcArr).forEach(
+        (val, idx, array)=>{
+          idArr.push( newEbcArr[val].id);
+        }
+      );
+      const newIndex = idArr.indexOf(id) +1;
+      const sugEbc = newEbcArr[newIndex];
+
       this.setState({
-        sugEbc: response.data[1],
+        sugEbc,
         loadingEbc: true
       })
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  };
+    };
+
 
   render(){
-
+    console.log('stejcik arr',this.state.ibuArr);
     return(<div>
-      <button onClick={this.showSuggestion}>Pokaz podobne piwerka</button>
+      <button onClick={this.showSuggestion}
+        style={{display: this.state.display}}
+        >Pokaz podobne piwerka</button>
       {this.state.loadingIbu?(<BeerItem beer={this.state.sugIbu} />):null}
       {this.state.loadingIbu?(<BeerItem beer={this.state.sugAbv} />):null}
       {this.state.loadingIbu?(<BeerItem beer={this.state.sugEbc} />):null}
