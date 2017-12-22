@@ -8,12 +8,13 @@ export default class BeerDetail extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      detailData : []
+      detailData : [],
+      idParams: this.props.match.params.id
     }
   };
 
   componentDidMount=()=>{
-    const {id}=this.props.match.params;
+    let {id}=this.props.match.params;
     this.FetchBeer(id);
   };
 
@@ -29,7 +30,11 @@ export default class BeerDetail extends React.Component{
     });
   };
 
+
   render(){
+    if (this.state.idParams !== this.props.match.params.id) {
+      window.location.reload();
+    };
     const {name, image_url, brewers_tips, abv, description, ibu}=this.state.detailData
     return(
       <div>

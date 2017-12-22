@@ -98,7 +98,6 @@ export default class Suggestion extends React.Component{
 
 
   render(){
-    console.log('stejcik arr',this.state.ibuArr);
     return(<div>
       <button onClick={this.showSuggestion}
         style={{display: this.state.display}}
