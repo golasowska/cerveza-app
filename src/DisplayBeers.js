@@ -42,14 +42,14 @@ export default class DisplayBeers extends React.Component{
     });
 
     return(
-      <div>
-        <div>
+      <div className='container'>
+        <div className='row justify-content-center'>
           {this.ShowBeers()}
         </div>
         <div>
           <button style={{display: this.state.display}} onClick={this.HandleClick}> Load more...</button>
         </div>
-        <div>
+        <div className='row justify-content-center'>
           {this.state.loading?moreBeers:null}
         </div>
         <h3 style={{noDisplay: this.state.noDisplay}}>KONIEC PIWEREK</h3>

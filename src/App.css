@@ -7,6 +7,28 @@
   font-family: Roboto,Helvetica,Arial,sans-serif;
 }
 
+#beerItem{
+  height: 400px;
+  width: 250px;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+
+ img.imageBeer{
+  height: 250px;
+  margin-bottom: 25px;
+}
+
+#beerItem>p{
+  margin-bottom: 5px;
+}
+
+.btn-wrap-text {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
 /*nav.navbar {
   overflow: hidden;
   background: #fff;
