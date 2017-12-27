@@ -11,15 +11,15 @@ export default class DisplayBeers extends React.Component{
       display: 'block',
       noDisplay: 'none'
     }
-  }
-  //
-  // componentDidMount(){
-  //   window.addEventListener('scroll', this.HandleClick)
-  // };
-  //
-  // componentWillUnmount(){
-  //   window.removeEventListener('scroll', this.HandleClick)
-  // };
+  };
+
+  componentDidMount(){
+    window.addEventListener('scroll', this.HandleClick)
+  };
+
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.HandleClick)
+  };
 
 
   ShowBeers=()=>{

@@ -14,8 +14,8 @@ export default class BeerDetailContent extends React.Component{
               <div className='col-md-5 text-center'>
               <img  className='imageBeerDet' alt='beer' src={image_url} />
               </div>
-            <div className='col-md-7'>
-              <h3 className='mb-4'>{name}</h3>
+            <div className='col-md-7 text-center'>
+              <h3 className='mb-4 mt-4'>{name}</h3>
               <h6 className='mb-2'>{description}</h6>
               <div className='mb-2'>ABV : {abv}</div>
               <div className='mb-2'>IBU : {ibu}</div>

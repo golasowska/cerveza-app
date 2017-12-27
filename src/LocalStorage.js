@@ -3,14 +3,15 @@ import AlertContainer from 'react-alert';
 
 export default class LocalStorage extends React.Component{
 
+  alertOptions = {
+    theme: 'light'
+  };
+
   handleAdd=(e)=>{
-    // e.preventDefault();
     const beers = JSON.parse(localStorage.getItem('myFavBeers')) || [];
 
       if (beers.length>0) {
         for (let i = 0; i < beers.length; i++) {
-          // console.log('beers[i]', beers[i].id);
-          // console.log('this.props.beer.id', this.props.beer.id);
           if (this.props.beer.id === beers[i].id){
             return false
           }
@@ -31,6 +32,7 @@ export default class LocalStorage extends React.Component{
   };
 
   render(){
+
     return(
       <div className='text-center'>
         <button
