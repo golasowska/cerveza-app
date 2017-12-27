@@ -46,7 +46,7 @@ export default class LocalStorage extends React.Component{
         <button
           className='btn btn-info bmd-btn-fab'
           onClick={this.handleAdd}>
-          <i class="material-icons">grade</i>
+          <i className='material-icons'>grade</i>
         </button>
         <AlertContainer ref = {a=> this.msg = a}{...this.alertOptions}/>
       </div>

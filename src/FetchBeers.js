@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import DisplayBeers from './DisplayBeers.js';
-import Navigation from './Navigation.js';
-import {RingLoader} from 'react-spinners';
+import NavigationBeer from './NavigationBeer.js';
+import {RiseLoader} from 'react-spinners';
 
 export default class FetchBeers extends React.Component{
   constructor(props){
@@ -10,7 +10,8 @@ export default class FetchBeers extends React.Component{
     this.state={
       data : [],
       dataScroll: [],
-      loading: true
+      loading: true,
+      loaderData: false
     }
   };
 
@@ -24,7 +25,9 @@ export default class FetchBeers extends React.Component{
       this.setState({
         data: response.data.slice(0,20),
         dataScroll: response.data.slice(20,80),
-        allData: response.data
+        allData: response.data,
+        loaderData:true,
+        loading: false
       })
     })
     .catch(function(error) {
@@ -35,15 +38,12 @@ export default class FetchBeers extends React.Component{
   render(){
     return(
       <div>
-        <Navigation />
-        <DisplayBeers data={this.state.data}
-        dataScroll={this.state.dataScroll}/>
+        <NavigationBeer />
+        {this.state.loaderData? (<DisplayBeers data={this.state.data}
+        dataScroll={this.state.dataScroll}/>) :null}
       <div className='row justify-content-center'>
         <div className='sweet-loading text-center'>
-           <RingLoader
-             color={'#43b6e0'}
-             loading={this.state.loading}
-           />
+           <RiseLoader color={'#43b6e0'} loading={this.state.loading}/>
         </div>
       </div>
       </div>

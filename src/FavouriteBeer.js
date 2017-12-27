@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './Navigation.js';
+import NavigationFav from './NavigationFav.js';
 import FavouriteItem from './FavouriteItem.js';
 
 export default class FavouriteBeer extends React.Component{
@@ -29,7 +29,7 @@ export default class FavouriteBeer extends React.Component{
     localStorage.setItem('myFavBeers', JSON.stringify(this.state.beers));
     return(
         <div>
-          <Navigation />
+          <NavigationFav />
           <div className='container'>
           <div className='row justify-content-center'>
             {this.displayBeers()}

@@ -52,10 +52,10 @@ export default class DisplayBeers extends React.Component{
             onClick={this.HandleClick}> Load more...</button>
         </div>
         <div className='row justify-content-center'>
-          {this.state.loading?moreBeers:null}
+          {this.state.loading?(moreBeers):null}
         </div>
         <div className='row justify-content-center'>
-          <h3 className='alert alert-dark m-5' style={{noDisplay: this.state.noDisplay}}>THE END</h3>
+          <h3 className='alert alert-dark m-5' style={{display: this.state.noDisplay}}>THE END</h3>
         </div>
       </div>
     )
