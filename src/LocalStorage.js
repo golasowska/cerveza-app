@@ -4,43 +4,33 @@ import AlertContainer from 'react-alert';
 export default class LocalStorage extends React.Component{
 
   handleAdd=(e)=>{
-    e.preventDefault();
+    // e.preventDefault();
     const beers = JSON.parse(localStorage.getItem('myFavBeers')) || [];
 
-      console.log('to propsy w kliku', this.props.beer);
-
-
       if (beers.length>0) {
-        for (var i = 0; i < beers.length; i++) {
+        for (let i = 0; i < beers.length; i++) {
+          // console.log('beers[i]', beers[i].id);
+          // console.log('this.props.beer.id', this.props.beer.id);
           if (this.props.beer.id === beers[i].id){
             return false
-          } else   {
-            const myFavBeers = [ this.props.beer, ...beers];
-            console.log('jazda jazdaaaaa');
-            console.log('ajdiczeq', this.props.beer.id);
-            localStorage.setItem('myFavBeers', JSON.stringify(myFavBeers));
-            // console.log('beers id', beers[1].id);
           }
-        }
-      } else {
-        const myFavBeers = [this.props.beer];
-        localStorage.setItem('myFavBeers', JSON.stringify(myFavBeers));
-      }
+        };
+            const myFavBeers = [ this.props.beer, ...beers];
+            localStorage.setItem('myFavBeers', JSON.stringify(myFavBeers));
 
-
-      console.log(localStorage);
-      console.log(beers);
-      console.log('dlugosc beerow', beers.length);
+        };
+        if (beers.length===0) {
+          const myFavBeers = [this.props.beer];
+          localStorage.setItem('myFavBeers', JSON.stringify(myFavBeers));
+      };
 
       this.msg.show('Your beer has been saved!', {
         time:2000,
         type: 'success'
       })
-
   };
 
   render(){
-    console.log('propsiki', this.props.beer);
     return(
       <div className='text-center'>
         <button

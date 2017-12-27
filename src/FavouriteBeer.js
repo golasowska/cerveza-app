@@ -13,7 +13,7 @@ export default class FavouriteBeer extends React.Component{
   displayBeers =()=>{
     return this.state.beers.map(beer=>{
       return  <FavouriteItem beer={beer} key={beer.id} removeBeer={this.removeBeer} />
-    })
+    });
   };
 
   removeBeer=(beer)=>{
