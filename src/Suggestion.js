@@ -45,31 +45,43 @@ export default class Suggestion extends React.Component{
   SetIbu=()=>{
     const newIbuArr = this.state.allData.sort((a,b)=>{return a.ibu-b.ibu});
     let idArr = [];
+    let newIndex=null;
     const id=this.props.detailData.id;
     Object.getOwnPropertyNames(newIbuArr).forEach(
       (val, idx, array)=>{
         idArr.push( newIbuArr[val].id);
       }
     );
-    const newIndex = idArr.indexOf(id) +1;
+    if (idArr.indexOf(id)===(newIbuArr.length-1)) {
+      newIndex = idArr.indexOf(id) -1;
+    } else {
+      newIndex = idArr.indexOf(id) +1;
+    };
+
     const sugIbu = newIbuArr[newIndex];
 
       this.setState({
         sugIbu,
         loadingIbu: true
-      })
+      });
     };
 
     SetAbv=()=>{
       const newAbvArr = this.state.allData.sort((a,b)=>{return a.abv-b.abv});
       let idArr = [];
+      let newIndex=null;
       const id = this.props.detailData.id;
       Object.getOwnPropertyNames(newAbvArr).forEach(
         (val, idx, array)=>{
           idArr.push( newAbvArr[val].id);
         }
       );
-      const newIndex = idArr.indexOf(id) +1;
+
+      if (idArr.indexOf(id)===(newAbvArr.length-1)) {
+        newIndex = idArr.indexOf(id) -1;
+      } else {
+        newIndex = idArr.indexOf(id) +1;
+      }
       const sugAbv= newAbvArr[newIndex];
 
       this.setState({
@@ -81,13 +93,18 @@ export default class Suggestion extends React.Component{
     SetEbc=()=>{
       const newEbcArr = this.state.allData.sort((a,b)=>{return a.ebc - b.ebc});
       let idArr = [];
+      let newIndex=null;
       const id = this.props.detailData.id;
       Object.getOwnPropertyNames(newEbcArr).forEach(
         (val, idx, array)=>{
           idArr.push( newEbcArr[val].id);
         }
       );
-      const newIndex = idArr.indexOf(id) +1;
+      if (idArr.indexOf(id)===(newEbcArr.length-1)) {
+        newIndex = idArr.indexOf(id) -1;
+      } else {
+        newIndex = idArr.indexOf(id) +1;
+      };
       const sugEbc = newEbcArr[newIndex];
 
       this.setState({
