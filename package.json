@@ -2,7 +2,9 @@
   "name": "cerveza-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://golasowska.github.io/cerveza-app",
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "lodash": "^4.17.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -11,6 +13,8 @@
     "react-spinners": "^0.2.5"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
