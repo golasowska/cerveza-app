@@ -27,10 +27,7 @@ export default class BeerDetail extends React.Component{
         detailData: response.data[0],
         loading: true,
         loadingSpinner: false
-      })
-    })
-    .catch(function(error) {
-      console.log(error);
+      });
     });
   };
 

@@ -9,6 +9,7 @@ export default class FetchBeers extends React.Component{
     super(props);
     this.state={
       data : [],
+      allData: [],
       dataScroll: [],
       loading: true,
       loaderData: false
