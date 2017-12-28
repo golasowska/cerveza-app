@@ -16,7 +16,7 @@ export default class Main extends React.Component{
             <div className="bubble bubble5"></div>
           </div>
 
-            <Link style={{fontSize: '4rem', color: '#ffc107'}} to='/detail'>BEERS</Link>
+            <Link style={{fontSize: '4rem', color: '#ffc107'}} to='/detail'>CERVEZA</Link>
             <p>explore the world of beer</p>
         </div>
       </div>
