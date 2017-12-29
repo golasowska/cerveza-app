@@ -11,7 +11,7 @@ export default class Suggestion extends React.Component{
   };
 
   componentDidMount() {
-      this.setIbu();
+      this.SetIbu();
   };
 
   SetIbu=()=>{

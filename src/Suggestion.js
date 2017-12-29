@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import SuggestionIbu from './Suggestion.Ibu.js';
-import SuggestionAbv from './Suggestion.Abv.js';
-import SuggestionEbc from './Suggestion.Ebc.js';
+import SuggestionIbu from './SuggestionIbu.js';
+import SuggestionAbv from './SuggestionAbv.js';
+import SuggestionEbc from './SuggestionEbc.js';
 
 export default class Suggestion extends React.Component{
   constructor(props){
@@ -13,24 +13,16 @@ export default class Suggestion extends React.Component{
     }
   };
 
-  componentDidMount() {
+  componentDidMount=()=> {
       this.FetchArr();
-  }
-
-  showSuggestion=()=>{
-    this.SetIbu();
-    this.SetAbv();
-    this.SetEbc();
-    this.setState({
-      display: 'none'
-    })
   };
 
   FetchArr=()=>{
     axios.get('https://api.punkapi.com/v2/beers?page=1&per_page=80')
     .then(response => {
       this.setState({
-        allData: response.data
+        allData: response.data,
+        loading: true
       });
     })
   };
@@ -38,8 +30,10 @@ export default class Suggestion extends React.Component{
 
   render(){
     return(<div className='container'>
-      <div className='row justify-content-center'>
-      <button className='btn btn-outline-info'>You might also like</button>
+      <div className='row justify-content-center text-center'>
+      You might also like:
+    </div>
+    <div className='row justify-content-center text-center'>
       {this.state.loading?(<SuggestionIbu allData={this.state.allData} detailData={this.props.detailData}/>):null}
       {this.state.loading?(<SuggestionAbv allData={this.state.allData} detailData={this.props.detailData}/>):null}
       {this.state.loading?(<SuggestionEbc allData={this.state.allData} detailData={this.props.detailData}/>):null}
